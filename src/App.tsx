@@ -13,7 +13,6 @@ const fetchStrategyData = async (st_num) => {
   } 
   catch (err) {
     console.log('Api fetch error: ', err);
-    
   }
 }
 
@@ -24,10 +23,10 @@ export default function App() {
   const [currentTheme, setCurrentTheme] = useState('light')
 
   // Strategy state
-  const [activeStrategyButton, setActiveStrategyButton] = useState(2)
+  const [activeStrategy, setactiveStrategy] = useState(2)
 
   // Currency state
-  const [activeCurrencyButton, setActiveCurrencyButton] = useState('USD')
+  const [activeCurrency, setactiveCurrency] = useState('USD')
 
   // Chart data state
   const [chartData, setChartData] = useState({title: 'Динамика роста для стратегии №2', data_btc: [], data_usd: []})
@@ -35,7 +34,7 @@ export default function App() {
   const buttonStrategyClick = (e) => {
 
     const st_num = +e.target.id //strategy number
-    setActiveStrategyButton(st_num)
+    setactiveStrategy(st_num)
 
     fetchStrategyData(st_num).then((data) => {
       setChartData(data)
@@ -45,13 +44,13 @@ export default function App() {
   }
 
   const buttonCurrencyClick = (e) => {
-    setActiveCurrencyButton(e.target.id)
+    setactiveCurrency(e.target.id)
     return false
   }
 
   // First component render
   useEffect(() => {
-    fetchStrategyData(activeStrategyButton).then((data) => {
+    fetchStrategyData(activeStrategy).then((data) => {
       setChartData(data)
     })
   }, [])
@@ -60,9 +59,9 @@ export default function App() {
       <div className={`App ${currentTheme}`}>
         <div className="dashboard">
 
-          <StrategyButtons buttonStrategyClick={buttonStrategyClick} activeStrategyButton={activeStrategyButton}/>
-          <CurrencyBar buttonCurrencyClick={buttonCurrencyClick} activeCurrencyButton={activeCurrencyButton}/>
-          <ApexChart chartData={chartData} activeCurrency={activeCurrencyButton} currentTheme={currentTheme}/>
+          <StrategyButtons buttonStrategyClick={buttonStrategyClick} activeStrategy={activeStrategy}/>
+          <CurrencyBar buttonCurrencyClick={buttonCurrencyClick} activeCurrency={activeCurrency}/>
+          <ApexChart chartData={chartData} activeCurrency={activeCurrency} currentTheme={currentTheme}/>
           <ThemeToggle currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
 
         </div>

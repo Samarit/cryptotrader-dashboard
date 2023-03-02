@@ -78,6 +78,7 @@ export default function ApexChart({chartData, activeCurrency, currentTheme}) {
     <ReactApexChart 
       options={options}
       series={series}
+      height={'350px'}
       />
   )
 }

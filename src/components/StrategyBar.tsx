@@ -1,4 +1,3 @@
-import { useState } from "react"
 import Button from "./Button"
 
 // Collection of buttons data
@@ -14,7 +13,7 @@ const strategyButtonsData = [
   }
 ]
 
-export default function StrategyButtons({buttonStrategyClick, activeStrategyButton}) {
+export default function StrategyButtons({buttonStrategyClick, activeStrategy}) {
 
   const buttonReloadClick = (e) => {
     /* Dont know what behavior is */
@@ -27,7 +26,7 @@ export default function StrategyButtons({buttonStrategyClick, activeStrategyButt
 
       {/* Strategy buttons */}
       {strategyButtonsData.map((el) => {
-        return <Button id={el.id} clickHandler={buttonStrategyClick} activeButton={activeStrategyButton} key={el.id} />
+        return <Button id={el.id} clickHandler={buttonStrategyClick} activeButton={activeStrategy} key={el.id} />
       })}
 
       {/* Reload button */}
