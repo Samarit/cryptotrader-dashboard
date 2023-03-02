@@ -21,7 +21,7 @@ export default function StrategyButtons({buttonStrategyClick, activeStrategyButt
   }
 
   return (
-    <div className="strategy-buttons">
+    <div className="strategy-bar">
 
       <span>Стратегия №</span>
 

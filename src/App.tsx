@@ -30,18 +30,15 @@ export default function App() {
   const [activeCurrencyButton, setActiveCurrencyButton] = useState('USD')
 
   // Chart data state
-  const [chartData, setChartData] = useState([])
+  const [chartData, setChartData] = useState({title: 'Динамика роста для стратегии №2', data_btc: [], data_usd: []})
 
   const buttonStrategyClick = (e) => {
 
     const st_num = +e.target.id //strategy number
     setActiveStrategyButton(st_num)
-    
-    fetchStrategyData(st_num).then((data) => {
 
+    fetchStrategyData(st_num).then((data) => {
       setChartData(data)
-      console.log(data);
-      
     })
     
     return false
@@ -65,7 +62,7 @@ export default function App() {
 
           <StrategyButtons buttonStrategyClick={buttonStrategyClick} activeStrategyButton={activeStrategyButton}/>
           <CurrencyBar buttonCurrencyClick={buttonCurrencyClick} activeCurrencyButton={activeCurrencyButton}/>
-          <ApexChart chartData={chartData} activeCurrency={activeCurrencyButton}/>
+          <ApexChart chartData={chartData} activeCurrency={activeCurrencyButton} currentTheme={currentTheme}/>
           <ThemeToggle currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
 
         </div>

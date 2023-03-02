@@ -26,7 +26,7 @@ export default function CurrencyBar({activeCurrencyButton, buttonCurrencyClick})
         return <Button id={el.id} clickHandler={buttonCurrencyClick} activeButton={activeCurrencyButton} key={el.id}/>
       })}
       
-      <span>Клмментарий: </span>
+      <span>Комментарий: </span>
     </div>
   )
 }

@@ -1,9 +1,12 @@
 import ReactApexChart from "react-apexcharts"
 import { ApexOptions } from 'apexcharts';
 
-export default function ApexChart({chartData, activeCurrency}) {
+export default function ApexChart({chartData, activeCurrency, currentTheme}) {
 
   const dataSeries = chartData[`data_${activeCurrency.toLowerCase()}`]
+
+  console.log(dataSeries);
+  
 
   const valueData = dataSeries.map((el) => {
     return el.value
@@ -34,7 +37,7 @@ export default function ApexChart({chartData, activeCurrency}) {
       size: 0,
     },
     title: {
-      text: 'Stock Price Movement',
+      text: chartData.title,
       align: 'left'
     },
     fill: {
@@ -47,10 +50,13 @@ export default function ApexChart({chartData, activeCurrency}) {
         stops: [0, 90, 100]
       },
     },
+    theme: {
+      mode: currentTheme
+    },
     yaxis: {
       labels: {
         formatter: function (val) {
-          return (val / 1000000).toFixed(0);
+          return val.toFixed(0);
         },
       },
       title: {
@@ -59,7 +65,7 @@ export default function ApexChart({chartData, activeCurrency}) {
     },
     xaxis: {
       type: 'datetime',
-      categories: timeData
+      categories: timeData,
     },
   };
 
