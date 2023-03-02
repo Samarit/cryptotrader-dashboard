@@ -1,7 +1,4 @@
 export default function Button ({id, clickHandler, activeButton}) {
-
-  
-
   return (
     <button 
       id={id}

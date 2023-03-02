@@ -5,17 +5,17 @@ export default function ApexChart({chartData, activeCurrency, currentTheme}) {
 
   const dataSeries = chartData[`data_${activeCurrency.toLowerCase()}`]
 
-  console.log(dataSeries);
-  
-
+  // data for y-axis
   const valueData = dataSeries.map((el) => {
     return el.value
   })
 
+  // data for x-axis
   const timeData = dataSeries.map((el) => {
     return el.time
   })
 
+  // Chart options
   const options: ApexOptions = {
     chart: {
       type: 'area',
@@ -70,7 +70,7 @@ export default function ApexChart({chartData, activeCurrency, currentTheme}) {
   };
 
   const series = [{
-    name: 'XYZ MOTORS',
+    name: '',
     data: valueData
   }]
 
