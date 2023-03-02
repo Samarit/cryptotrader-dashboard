@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
-    "apexcharts": "^3.37.1"
+    "apexcharts": "^3.37.1",
+    "react-apexcharts": "^1.4.0"
   }
 }
