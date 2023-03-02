@@ -1,0 +1,26 @@
+.App.light {
+  background-color: white;
+}
+
+.App.dark {
+  background-color: black;
+}
+
+.btn.active {
+  background-color: black;
+  color: white;
+}
+
+.theme-toggle {
+  width: 20px;
+  height: 10px;
+
+}
+
+.theme-toggle span {
+  display: block;
+  background-color: red;
+  width: 50%;
+  height: 10px;
+}
+
