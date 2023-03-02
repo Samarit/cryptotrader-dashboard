@@ -10,7 +10,7 @@ const currencyButtons = [
   }
 ]
 
-export default function CurrencyBar() {
+export default function CurrencyBar({activeCurrencyButton, buttonCurrencyClick}) {
 
   const [activeButton, setActiveButton] = useState('USD')
 
@@ -23,7 +23,7 @@ export default function CurrencyBar() {
       <span>Валюта</span>
 
       {currencyButtons.map((el) => {
-        return <Button id={el.id} clickHandler={currencyButtonClick} activeButton={activeButton} key={el.id}/>
+        return <Button id={el.id} clickHandler={buttonCurrencyClick} activeButton={activeCurrencyButton} key={el.id}/>
       })}
       
       <span>Клмментарий: </span>

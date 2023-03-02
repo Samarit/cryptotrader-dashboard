@@ -14,15 +14,7 @@ const strategyButtonsData = [
   }
 ]
 
-export default function StrategyButtons() {
-
-  const [activeButton, setActiveButton] = useState(2)
-
-  const buttonStrategyClick = (e) => {
-    setActiveButton(+e.target.id)
-
-    return false
-  }
+export default function StrategyButtons({buttonStrategyClick, activeStrategyButton}) {
 
   const buttonReloadClick = (e) => {
     /* Dont know what behavior is */
@@ -35,7 +27,7 @@ export default function StrategyButtons() {
 
       {/* Strategy buttons */}
       {strategyButtonsData.map((el) => {
-        return <Button id={el.id} clickHandler={buttonStrategyClick} activeButton={activeButton} key={el.id} />
+        return <Button id={el.id} clickHandler={buttonStrategyClick} activeButton={activeStrategyButton} key={el.id} />
       })}
 
       {/* Reload button */}
